@@ -15,6 +15,7 @@ build/
 .gradle/
 db/
 gradle/
+.idea/
 
 # User-specific stuff
 .idea/**/workspace.xml
