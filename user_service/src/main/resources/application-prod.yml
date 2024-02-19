@@ -1,0 +1,58 @@
+server:
+  port: 8081
+spring:
+  servlet:
+    encoding:
+      force-response: true
+    multipart:
+      maxRequestSize: 50MB
+      maxFileSize: 50MB
+
+  datasource:
+    url: ${datasource}
+    username: ${username}
+    password: ${password}
+    driver-class-name: com.mysql.cj.jdbc.Driver
+
+  jpa:
+    hibernate:
+      ddl-auto: update  # (1) 스키마 자동 생성 : create, update, create-drop, validate, none
+    show-sql: true      # (2) SQL 쿼리 출력
+    properties:
+      hibernate:
+        format_sql: true
+  data:
+    redis:
+      host: ${hostname}
+      port: ${port}
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: ${eureka_url}
+
+
+jwt:
+  secret-key: ${jwt_secret_key}
+
+#aws S3 setting
+cloud:
+  aws:
+    credentials:
+      accessKey: ${s3_access_key}
+      secretKey: ${s3_secret_key}
+    s3:
+      bucket: ${s3_bucket_name}
+    region:
+      static: ap-northeast-2
+    stack:
+      auto: false
+
+logging: # (1) 로그 레벨 설정
+  level:
+    org:
+      springframework:
+        data:
+          redis: DEBUG
+        orm:
+          jpa: DEBUG
