@@ -1,0 +1,8 @@
+rootProject.name = 'preordermsa'
+
+
+include 'eureka_service'
+include 'activity_service'
+include 'newsfeed_service'
+include 'user_service'
+
